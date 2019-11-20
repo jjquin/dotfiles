@@ -1,0 +1,14 @@
+#
+# ZSH Function cpv
+#
+# Desc: Copy files using rsync which is safer
+#
+
+function cpv {
+	rsync -pogbr -hhh --backup-dir=/tmp/rsync -e /dev/null --progress "$@"
+}
+
+compdef _files cpv
+
+cpv "$@"
+

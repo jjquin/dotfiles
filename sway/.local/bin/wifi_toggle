@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#
+# wifi_toggle
+# 
+# Description toggles wifi on/off
+# Call with on or off to force it
+# otherwise it checks the radios 
+# current states and toggles it
+#
+# Requirements:
+# nmcli - uses it to check radio status
+# and toggle radio on/off
+#
+# requires sudo to toggle radio
+# add nmcli or nmcli radio all on and 
+# nmcli radiou all off to sudoers as 
+# follows:
+# username ALL=(ALL) NOPASSWD: /usr/bin/nmcli radio all on, /usr/bin/nmcli radio all off
+# 
+
+if [ "$1" == "on" -o "$1" == "off" ]
+then
+	toggle="$1"
+else
+	if nmcli radio all | grep disabled
+	then
+		toggle="on"
+	else
+		toggle="off"
+	fi
+fi
+
+sudo nmcli radio all $toggle
+notify-send "Wireless $toggle" -t 1000

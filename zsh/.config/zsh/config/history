@@ -1,0 +1,45 @@
+#
+# ZSH History Configuration
+#
+
+## History wrapper
+function omz_history {
+  local clear list
+  zparseopts -E c=clear l=list
+
+  if [[ -n "$clear" ]]; then
+    # if -c provided, clobber the history file
+    echo -n >| "$HISTFILE"
+    echo >&2 History file deleted. Reload the session to see its effects.
+  elif [[ -n "$list" ]]; then
+    # if -l provided, run as if calling `fc' directly
+    builtin fc "$@"
+  else
+    # unless a number is provided, show all history events (starting from 1)
+    [[ ${@[-1]-} = *[0-9]* ]] && builtin fc -l "$@" || builtin fc -l "$@" 1
+  fi
+}
+
+# Timestamp format
+alias   history='omz_history -i' \ 
+        h='history'
+
+## History file configuration
+HISTFILE="${ZCACHEDIR:-$HOME/.cache/zsh}/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
+
+## History command configuration
+setopt BANG_HIST                      # Perfrom textual history expansion, treating the ! specially
+setopt EXTENDED_HISTORY               # record timestamp of command in HISTFILE
+setopt HIST_EXPIRE_DUPS_FIRST         # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt HIST_IGNORE_DUPS               # ignore duplicated commands history list
+setopt HIST_IGNORE_ALL_DUPS           # delete an old recorded event if a new event is a duplicate
+setopt HIST_SAVE_NO_DUPS              # do not write a duplicate even to the history file
+setopt HIST_IGNORE_SPACE              # ignore commands that start with space
+setopt HIST_VERIFY                    # show command with history expansion to user before running it
+setopt INC_APPEND_HISTORY              # add commands to HISTFILE in order of execution
+setopt SHARE_HISTORY                  # share command history data
+setopt HIST_REDUCE_BLANKS             # remove superfluous blanks from each command line added to history
+setopt HIST_NO_STORE                   # don't store history commands
+        

@@ -1,0 +1,20 @@
+#
+# Sway Clipboard Settings
+#
+
+#
+# Start clipboard
+#
+
+	# Kill wl-paste
+	exec_always pkill wl-paste
+
+	# Start clipman clipboard manager
+	exec_always wl-paste -t text --watch clipman store 1>> ~/.cache/clipman.log 2>&1
+	exec_always wl-paste -p -t text --watch clipman store --histpath="~/.local/share/clipman-primary.json"
+
+#
+# Clipboard Keybindings
+#
+	# $mod+p: Choose from clipboard history
+	bindsym $mod+p exec clipman pick --tool=wofi --histpath="~/.local/share/clipman-primary.json"

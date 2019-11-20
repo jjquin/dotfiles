@@ -1,0 +1,5 @@
+#
+# ZSH Completion for d (dirs list) function
+#
+
+compdef _dirs d

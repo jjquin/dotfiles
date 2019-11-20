@@ -1,0 +1,33 @@
+#
+# ZSH Aliases for Systemd
+#
+
+	user_commands=(
+	  list-units is-active status show help list-unit-files
+	  is-enabled list-jobs show-environment cat list-timers)
+	
+	sudo_commands=(
+	  start stop reload restart try-restart isolate kill
+	  reset-failed enable disable reenable preset mask unmask
+	  link load cancel set-environment unset-environment
+	  edit)
+	
+	for c in $user_commands; do; alias sc-$c="systemctl $c"; done
+	for c in $sudo_commands; do; alias sc-$c="sudo systemctl $c"; done
+	for c in $user_commands; do; alias scu-$c="systemctl --user $c"; done
+	for c in $sudo_commands; do; alias scu-$c="systemctl --user $c"; done
+	
+	alias 	sc-on='sc-enable' \
+		sc-off='sc-disable' \
+		sc-on-now="sc-enable --now" \
+	 	sc-off-now="sc-disable --now" \
+		sc-mask-now="sc-mask --now" \
+		scu-on-now="scu-enable --now" \
+		scu-off-now="scu-disable --now" \
+		scu-mask-now="scu-mask --now" \
+		sc-lu='sc-list-units' \
+		sc-luf='sc-list-unit-files' \
+		sc-lt='sc-list-timers' \
+		sc-is-st='sc-is-active' \
+		sc-is-on='sc-is-enabled' \
+		sc-sh-env='sc-show-environment'

@@ -1,0 +1,54 @@
+#
+# ZSH Suffix Aliases
+#
+
+	# web
+	alias -s 	html=firefox \
+			org=firefox \
+			com=firefox
+
+	# Libreoffice
+	alias -s 	odt=libreoffice \
+			odf=libreoffice \
+			odg=libreoffice \
+			ods=libreoffice \
+			odp=libreoffice \
+			ott=libreoffice
+	
+	# editor
+	alias -s	txt=$EDITOR \
+			md=$EDITOR \
+			yml=$EDITOR \
+			yaml=$EDITOR \
+			ini=$EDITOR \
+			list=$EDITOR \ 
+			conf=$EDITOR \
+			json=$EDITOR \
+			cfg=$EDITOR
+
+	# images
+	alias -s	jpg=imv \
+			jpeg=imv \
+			png=imv \
+			gif=imv 
+
+	# videos
+	alias -s	mp4=mpv \
+			avi=mpv \
+			mkv=mpv
+
+
+	# PDF
+	alias -s	pdf=zathura 
+			
+	# Compressed files
+	alias -s	tar=extract \
+			tgz=extract \
+			gz=extract \
+			bz2=extract \
+			xz=extract \
+			zip=extract \
+			rar=extract \
+			7z=extract
+	
+

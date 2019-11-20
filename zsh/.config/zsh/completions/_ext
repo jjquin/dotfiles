@@ -1,0 +1,5 @@
+#
+# ZSH Completion for Function ext
+#
+
+compdef _files ext

@@ -1,0 +1,49 @@
+
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+    
+    include "us"
+    name[group1] = "English (Colemak Wide)";
+    key <AE07> { [        equal,         plus                                    ] };
+    key <AE08> { [            7,    ampersand                                    ] };
+    key <AE09> { [            8,     asterisk                                    ] };
+    key <AE10> { [            9,    parenleft                                    ] };
+    key <AE11> { [            0,   parenright                                    ] };
+    key <AE12> { [        minus,   underscore                                    ] };
+    key <AD01> { [            q,            Q                                    ] };
+    key <AD02> { [            w,            W,               7,       ampersand  ] };
+    key <AD03> { [            f,            F,               8,        asterisk  ] };
+    key <AD04> { [            p,            P,               9,       parenleft  ] };
+    key <AD05> { [            g,            G,               0,      parenright  ] };
+    key <AD06> { [  bracketleft,    braceleft                                    ] };
+    key <AD07> { [            j,            J,           equal,            plus  ] };
+    key <AD08> { [            l,            L,     bracketleft,       braceleft  ] };
+    key <AD09> { [            u,            U,    bracketright,      braceright  ] };
+    key <AD10> { [            y,            Y,       backslash,             bar  ] };
+    key <AD11> { [    semicolon,        colon                                    ] };
+    key <AD12> { [   apostrophe,     quotedbl                                    ] };
+    key <AC01> { [            a,            A                                    ] };
+    key <AC02> { [            r,            R,               4,          dollar  ] };
+    key <AC03> { [            s,            S,               5,         percent  ] };
+    key <AC04> { [            t,            T,               6,     asciicircum  ] };
+    key <AC05> { [            d,            D,               0,      parenright  ] };
+    key <AC06> { [ bracketright,   braceright                                    ] };
+    key <AC07> { [            h,            H,           minus,      underscore  ] };
+    key <AC08> { [            n,            N,           grave,      asciitilde  ] };
+    key <AC09> { [            e,            E,       semicolon,           colon  ] };
+    key <AC10> { [            i,            I,      apostrophe,        quotedbl  ] };
+    key <AC11> { [            o,            O                                    ] };
+    key <AB01> { [            z,            Z                                    ] };
+    key <AB02> { [            x,            X,               1,         exclam   ] };
+    key <AB03> { [            c,            C,               2,             at   ] };
+    key <AB04> { [            v,            V,               3,     numbersign   ] };
+    key <AB05> { [            b,            B                                    ] };
+    key <AB06> { [        slash,     question                                    ] };
+    key <AB07> { [            k,            K                                    ] };
+    key <AB08> { [            m,            M,           slash,       question   ] };
+    key <AB09> { [        comma,         less                                    ] };
+    key <AB10> { [       period,      greater                                    ] };
+    key <BKSL> { [    backslash,          bar                                    ] };
+    key <SPCE> { [        space,        space,           space,    nobreakspace  ] };
+    include "level3(ralt_switch)"
+};

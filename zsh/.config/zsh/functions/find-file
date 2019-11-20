@@ -1,0 +1,15 @@
+#
+# ZSH Function find-file
+#
+# Desc: find a file using fzf and open in default editor
+#
+
+function find-file {
+	local FILE=$(fzf --preview-window=right:60% --preview='bat --color "always" {}')
+	if [[ ! -z ${FILE} ]]; then
+		$EDITOR $FILE
+	fi
+}
+
+find-file "$@"
+

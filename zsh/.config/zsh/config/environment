@@ -1,0 +1,68 @@
+#
+# ZSH Variables
+#
+	# Set Language
+	export LC_COLLATE=en_US.UTF-8
+	export LC_CTYPE=en_US.UTF-8
+	export LC_MESSAGES=en_US.UTF-8
+	export LC_MONETARY=en_US.UTF-8
+	export LC_NUMERIC=en_US.UTF-8
+	export LC_TIME=en_US.UTF-8
+	export LC_ALL=en_US.UTF-8
+	export LANG=en_US.UTF-8
+	export LANGUAGE=en_US.UTF-8
+	export LESSCHARSET=utf-8
+	
+	# FZF Defaults
+	export FZF_DEFAULT_OPTS='--height 40% --reverse --border --inline-info --color=dark,bg+:235,hl+:10,pointer:5'
+	export ENHANCD_FILTER="fzf:peco:percol"
+	export ENHANCD_COMMAND='c'
+
+	# improved less option
+	export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS"
+	
+	# Watching other users
+	WATCHFMT="%n %a %l from %m at %t."
+	watch=(notme)         # Report login/logout events for everybody except ourself.
+	LOGCHECK=60           # Time (seconds) between checks for login/logout activity.
+	REPORTTIME=5          # Display usage statistics for commands running > 5 sec.
+	
+	# Key timeout and character sequences
+	KEYTIMEOUT=1
+	WORDCHARS='*?_-[]~=./&;!#$%^(){}<>'
+
+	# Colorize Man Pages
+	export LESS_TERMCAP_mb=$(printf "\e[1;31m") 
+	export LESS_TERMCAP_md=$(printf "\e[1;31m") 
+	export LESS_TERMCAP_me=$(printf "\e[0m") 
+	export LESS_TERMCAP_se=$(printf "\e[0m") 
+	export LESS_TERMCAP_so=$(printf "\e[1;44;33m") 
+	export LESS_TERMCAP_ue=$(printf "\e[0m") 
+	export LESS_TERMCAP_us=$(printf "\e[1;32m") 
+	export PAGER="${commands[less]:-$PAGER}" 
+
+	# Enable highlighters
+	ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+	
+	# Override highlighter colors
+	# ZSH_HIGHLIGHT_STYLES[default]=none
+	# ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=009
+	# ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=009,standout
+	# ZSH_HIGHLIGHT_STYLES[alias]=fg=white,bold
+	# ZSH_HIGHLIGHT_STYLES[builtin]=fg=white,bold
+	# ZSH_HIGHLIGHT_STYLES[function]=fg=white,bold
+	# ZSH_HIGHLIGHT_STYLES[command]=fg=white,bold
+	# ZSH_HIGHLIGHT_STYLES[precommand]=fg=white,underline
+	# ZSH_HIGHLIGHT_STYLES[commandseparator]=none
+	# ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=009
+	# ZSH_HIGHLIGHT_STYLES[path]=fg=214,underline
+	# ZSH_HIGHLIGHT_STYLES[globbing]=fg=063
+	# ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=white,underline
+	# ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none
+	# ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=none
+	# ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
+	# ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=063
+	# ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=063
+	# ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=009
+	# ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=009
+	# ZSH_HIGHLIGHT_STYLES[assign]=none

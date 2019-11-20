@@ -1,0 +1,6 @@
+rofi.modi:		window,run,drun,ssh
+rofi.theme:		themes/appsmenu
+rofi.case-sensitive	false
+rofi.opacity		80
+rofi.face-transparency	true
+

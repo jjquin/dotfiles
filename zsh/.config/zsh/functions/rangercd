@@ -1,0 +1,16 @@
+#
+# ZSH Function rangercd
+#
+# Desc: when ranger exits it zsh will be in last ranger directory
+#
+
+function rangercd {
+	TEMP_FILE="/tmp/ranger-$(uuidgen)"
+	/usr/bin/ranger --choosedir="${TEMP_FILE}" "${@:-$(pwd)}"
+	if [[ "$(/usr/bin/cat -- "${TEMP_FILE}")" != "$(echo -n `pwd`)" ]]; then
+		cd -- "$(/usr/bin/cat "${TEMP_FILE}")"
+	fi
+	rm -f -- "${TEMP_FILE}"
+}
+
+rangercd "$@"

@@ -1,0 +1,16 @@
+#
+# ZSH Function d 
+#
+# Desc: dirs - list directories in recent list
+#
+
+function dirs () {
+  if [[ -n $1 ]]; then
+    dirs "$@"
+  else
+    dirs -v | head -10
+  fi
+}
+
+dirs "$@"
+

@@ -1,0 +1,51 @@
+
+@import "/home/jj/.cache/wal/colors-waybar.css";
+
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   Sans;
+    font-size:     15px;
+    box-shadow:    none;
+    text-shadow:   none;
+    transition-duration: 0s;
+    color: #e9e5e8;
+}
+
+window {
+/*    background: rgba(35, 31, 32, 0.70); */
+    background-color: #16120f;
+    opacity: 0.7;
+    color: #16120f;
+}
+#workspaces {
+    margin: 0 5px;
+}
+
+#workspaces button {
+    padding:    0 5px;
+}
+
+#workspaces button.focused {
+/*    border-top: 3px solid rgba(217, 216, 216, 1);
+    border-bottom: 3px solid rgba(217, 216, 216, 0); */
+    border-top: 3px solid #C2AAB9;
+    opacity: 1;
+}
+
+#mode, #custom-battery, #temperature, #cpu, #memory, #network, #custom-storage, #custom-spotify, #custom-weather {
+    margin:     0px 6px 0px 10px;
+    min-width:  16px;
+}
+
+#mode, #pulseaudio, #idle_inhibitor, #backlight, #custom-pkg_no, #custom-mail, #tray {
+    margin:     0px 5px 0px 5px;
+    min-width:  10px;
+}
+
+#clock {
+    margin:     0px 16px 0px 10px;
+    min-width:  140px;
+}
+
+

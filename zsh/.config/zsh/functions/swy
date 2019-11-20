@@ -1,0 +1,37 @@
+#
+# ZSH Function swy
+#
+# Desc: Shortens swaymsg command to get inputs, outputs
+# tree or run command
+#
+# Requirements:
+# SwayWM
+#
+
+function swy {
+	[[ -z "$1" ]] && echo "must enter argument"; exit 1
+
+	case $1 in
+		in)
+			gets="inputs"
+			;;
+		out)
+			gets="outputs"
+			;;
+		tree)
+			gets="tree"
+			;;
+		*)
+			swaymsg exec -- "${@:2}"
+			exit 0
+			;;
+	esac
+	if [[ -z "$2" ]]; then
+		swaymsg -t get_${gets} | less
+		else
+		swaymsg -t get_${gets} | grep -i "${@:2}"
+	fi
+}
+
+swy "$@"
+

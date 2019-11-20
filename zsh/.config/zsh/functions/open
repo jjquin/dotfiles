@@ -1,0 +1,12 @@
+#
+# xdg-open function
+#
+function open {
+	TYP=`xdg-mime query filetype $1`
+	echo "opening file "  $1  " of type " $TYP "with " `xdg-mime query default $TYP`
+	nohup xdg-open $1 >/dev/null 2>&1 &
+	disown
+}
+
+open "$@"
+

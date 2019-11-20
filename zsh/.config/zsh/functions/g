@@ -1,0 +1,17 @@
+#
+# ZSH Function g
+#
+# Desc: short version of git if no other option
+# is given in runs git status
+#
+
+function g {
+	if [[ $# -gt 0 ]]; then
+		git "$@"
+	else
+		git status --short --ignore-submodules=dirty
+	fi
+}
+
+g "$@"
+

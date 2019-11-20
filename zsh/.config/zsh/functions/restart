@@ -1,0 +1,14 @@
+#
+# ZSH Function restart
+#
+# Desc: kill and restart application
+#
+
+function restart {
+	pkill "$1"
+	"$1"
+	disown
+}
+
+restart "$@"
+

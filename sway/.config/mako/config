@@ -1,0 +1,27 @@
+# Font
+font=DejaVu Sans 9
+
+# Size
+width=350
+padding=10
+margin=10
+border-size=5
+
+# Timeout
+default-timeout=10000
+
+# Only for desktop, ignored when no such output exists
+output=DP-4
+
+icon-path=/usr/share/icons/Obsidian
+icons=1
+markup=1
+
+# Colors
+background-color=#231f20
+border-color=#009ddc
+text-color=#d9d8d8
+
+[urgency=high]
+border-color=#ee2e24
+ignore-timeout=1

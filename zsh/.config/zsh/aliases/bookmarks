@@ -1,0 +1,37 @@
+#
+# ZSH Bookmarks - Hashes
+#
+# Desc: Directories that can be used with ~ (i.e. ~hash)
+#
+
+	# Root Directories
+	hash -d bctl=/mnt/efi
+	hash -d fonts=/usr/share/fonts
+	hash -d rdf=/usr/share/applications
+	hash -d rxkb=/usr/share/X11/xkb/symbols
+	
+	# Main Home Directories
+	hash -d lbin=~/.local/bin
+	hash -d d=~/Documents
+	hash -d D=~/Downloads
+	hash -d iso=~/Downloads/ISOs
+	hash -d p=~/Media/Pictures
+	hash -d b=~/Media/Books
+	hash -d m=~/Media/Music
+	hash -d v=~/Media/Videos
+	hash -d p=~/Projects
+	hash -d lxkb=~/.xkb/symbols
+
+	# Config Directories
+	hash -d cfg=~/.config
+	hash -d cfk=~/.config/kitty
+	hash -d cfr=~/.config/ranger
+	hash -d cfs=~/.config/sway
+	hash -d cfw=~/.config/waybar
+	hash -d cff=~/.config/wofi
+	hash -d cfz=~/.config/zsh
+
+	# Home Directories
+	hash -d hdf=~/.local/share/applications
+	hash -d dtf=~/Code/dotfiles
+

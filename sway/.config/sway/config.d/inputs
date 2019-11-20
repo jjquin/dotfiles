@@ -1,0 +1,35 @@
+#
+# Sway Input Settings
+#
+
+#
+# Input Defaults
+#
+        # Hide mouse cursor
+        seat * hide_cursor 6000
+        # Drag and resize floating windows with $mod key
+        floating_modifier Mod4 normal
+	# Turn off focus follows mouse
+	focus_follows_mouse no
+
+#
+# Input Configuration
+#
+
+	# Trackpad
+	input "1739:0:Synaptics_TM3053-004" {
+		dwt enabled
+	       	tap enabled
+	       	natural_scroll enabled              
+	       	middle_emulation enabled
+	}	
+
+	# Keyboard
+	input * {
+		xkb_layout us,us-colemak-wide
+		xkb_options caps:hyper,grp:sclk_toggle,grp_led:scroll
+		# xkb_options grp:sclk_toggle,grp_led:scroll
+		xkb_numlock enable 
+	}
+
+

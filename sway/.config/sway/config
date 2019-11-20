@@ -1,0 +1,19 @@
+#
+# Configuration file for Sway
+# 
+# $XDG_CONFIG_DIR/sway/config
+#
+
+#
+# Set Mod variables
+#
+	# Super key = mod key
+	set $mod Mod3
+	
+#
+# Include files in config.d directory
+#
+	# Include files from config.d directory
+	include $HOME/.config/sway/config.d/*
+
+

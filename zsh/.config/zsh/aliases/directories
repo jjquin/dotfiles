@@ -1,0 +1,36 @@
+#
+# ZSH Aliases for Directories
+#
+
+# Directory coloring
+alias ls='() { $(whence -p ls) -vh --group-directories-first --file-type --color=auto $@ }' \
+	l='ls -al' \
+	la='ls -a' \
+	ll='ls -l' \
+	ld='ls -ld .*'
+
+# Directory management
+alias 	1='pu' \
+	2='pu -2' \
+	3='pu -3' \
+	4='pu -4' \
+	5='pu -5' \
+	6='pu -6' \
+	7='pu -7' \
+	8='pu -8' \
+	9='pu -9' \
+	pu='() { pushd $1 &> /dev/null; dirs -v; }' \
+	po='() { popd &> /dev/null; dirs -v; }' \
+	cd..='cd ..' \
+	..='cd ..' \
+	...='cd ../..' \
+	....='cd ../../..' \
+	.....='cd ../../../..' \
+	.2='cd ../..' \
+	.3='cd ../../..' \
+	.4='cd ../../../..' \
+	.5='cd ../../../../..' \
+	mkdir='mkdir -pv'
+
+
+

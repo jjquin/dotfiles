@@ -1,0 +1,5 @@
+#
+# ZSH Completion for Function cs
+#
+
+compdef _dirs cs

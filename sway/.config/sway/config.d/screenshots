@@ -1,0 +1,15 @@
+#
+# Sway Keybindings for Screenshots
+#
+
+    # Print: Screenshot active display
+    bindsym Print exec screenshots display
+
+    # $mod+Print: Screenshot region select 
+    bindsym $mod+Print exec screenshots region
+
+    # $mod+Shift+Print: Screenshot current window 
+    bindsym $mod+Shift+Print exec screenshots window
+
+    # $mod+Shift+p: Color Picker
+    bindsym $mod+Shift+p exec color_pick

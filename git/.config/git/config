@@ -1,0 +1,5 @@
+[user]
+	email = git@quin.email
+	name = JJ Quinlivan
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/

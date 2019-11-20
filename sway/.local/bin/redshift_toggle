@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#
+# redshift_toggle
+# 
+# Desc: toggles redshift
+# Copied from someone's dotfiles
+#
+# requires redshift-wlr-gamma-control-git from AUR
+# to work on Sway
+#
+
+RSFILE=${RSFILE:-/tmp/rsFile}
+
+if [ -e $RSFILE ]; then
+    redshift-gtk -c ~/.config/redshift/redshift.conf &
+    notify-send "Redshift" "<i>enabled</i>" -i redshift-status-on -t 3000
+    rm $RSFILE
+else
+    echo $ "dummytext" >> $RSFILE
+    pgrep -f "redshift-gtk" | xargs kill
+    notify-send "Redshift" "<i>disabled</i>" -i redshift-status-off -t 3000
+fi

@@ -1,0 +1,16 @@
+#
+# ZSH Function cs
+#
+# Desc: cd's into a directory and lists the contents
+#
+
+function cs {
+	if [[ -n "$1" ]]; then
+		builtin cd "$@" && ls -alhv --group-directories-first --color=auto
+	else
+		builtin cd ~ && ls -alhv --group-directories-first --color=auto
+	fi
+}
+
+cs "$@"
+

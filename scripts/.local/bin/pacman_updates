@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+#
+# pacman_updates
+#
+# Desc: Syncs repositories and downloads updates, meant to be run as a cronjob.
+# From Luke Smith https://github.com/lukesmithxyz
+# 
+# Needs to be updated to also do updates from AUR
+#
+
+ping -q -c 1 1.1.1.1 > /dev/null || exit
+
+notify-send "📦 Repository Sync" "Checking for package updates..."
+
+sudo pacman -Syyuw --noconfirm || notify-send "Error downloading updates.
+Check your internet connection, if pacman is already running, or run update manually to see errors."
+
+if pacman -Qu | grep -v "\[ignored\]"
+then
+	notify-send "🎁 Repository Sync" "Updates available. Click statusbar icon (📦) for update." -t 3000
+else
+	notify-send "📦 Repository Sync"  "Sync complete. No new packages for update." -t 3000
+fi
+
+

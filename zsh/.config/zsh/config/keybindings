@@ -1,0 +1,77 @@
+#
+# ZSH Keybinding Configuration
+#
+
+#
+# Expand Vi-Mode Keybindings
+#
+	# Load ZLE
+	zmodload zsh/zle
+
+	# Set vi keybindings	
+	bindkey -v
+
+	# allow v to edit the command line (standard behaviour)
+	autoload -Uz edit-command-line
+	zle -N edit-command-line
+	bindkey -M vicmd 'v' edit-command-line
+	
+	# allow ctrl-p, ctrl-n for navigate history (standard behaviour)
+	bindkey '^P' up-history
+	bindkey '^N' down-history
+	
+	# allow ctrl-h, ctrl-w, ctrl-? for char and word deletion (standard behaviour)
+	bindkey '^?' backward-delete-char
+	bindkey '^h' backward-delete-char
+	bindkey '^w' backward-kill-word
+	
+	# allow ctrl-r and ctrl-s to search the history
+	# bindkey '^r' history-incremental-search-backward
+	# bindkey '^s' history-incremental-search-forward
+	bindkey '^r' history-substring-search-up
+	bindkey '^s' history-substring-search-down
+
+	# up and down arrow for history search
+	bindkey '[[A' history-substring-search-up
+	bindkey '[[B' history-substring-search-down
+
+	# allow ctrl-a and ctrl-e to move to beginning/end of line
+	bindkey '^a' beginning-of-line
+	bindkey '^e' end-of-line
+	
+	# Use vim keys in tab complete menu:
+	bindkey -M menuselect 'h' vi-backward-char
+	bindkey -M menuselect 'k' vi-up-line-or-history
+	bindkey -M menuselect 'l' vi-forward-char
+	bindkey -M menuselect 'j' vi-down-line-or-history
+	bindkey -v '^?' backward-delete-char
+
+	# Source fzf keybindings
+	[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+
+
+	# Change cursor shape for different vi modes.
+	function zle-keymap-select {
+	  if [[ ${KEYMAP} == vicmd ]] ||
+	     [[ $1 = 'block' ]]; then
+	    echo -ne '\e[1 q'
+	
+	  elif [[ ${KEYMAP} == main ]] ||
+	       [[ ${KEYMAP} == viins ]] ||
+	       [[ ${KEYMAP} = '' ]] ||
+	       [[ $1 = 'beam' ]]; then
+	    echo -ne '\e[5 q'
+	  fi
+	}
+	zle -N zle-keymap-select
+	
+	zle-line-init() {
+	    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+	    echo -ne "\e[5 q"
+	}
+	zle -N zle-line-init
+	
+	# Use beam shape cursor on startup.
+	echo -ne '\e[5 q'
+	# Use beam shape cursor for each new prompt.
+	preexec() { echo -ne '\e[5 q' ;}
