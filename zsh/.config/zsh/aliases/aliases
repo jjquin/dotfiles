@@ -33,6 +33,16 @@ alias 	kall='killall' \
 	ping='ping -c 5' \
 	psmem='ps -e -orss=,args= | sort -b -k1,1n | head 10' 
 
+if (( $+commands[tldr] )); then
+	alias	help='tldr'
+else
+	alias	help='man'
+fi
+
+if (( $+commands[fd] )); then
+	alias	find='fd -H'
+fi
+
 # Custom Commands
 alias 	colebg="killall swaybg && swaymsg exec -- swaybg -i ~/Media/Pictures/colemak_mod_wide.png -m tile" \
 	batt="cat /sys/class/power_supply/BAT?/capacity" \

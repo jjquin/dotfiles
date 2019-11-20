@@ -2,4 +2,5 @@
 # ZSH Completion for Function cs
 #
 
-compdef _dirs cs
+compdef cs=cd
+

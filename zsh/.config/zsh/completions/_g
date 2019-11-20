@@ -2,5 +2,5 @@
 # ZSH Completion for Function g
 #
 
-compdef g=git
+compdef _git g
 

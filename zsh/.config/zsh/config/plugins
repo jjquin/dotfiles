@@ -4,7 +4,11 @@
 
 
 # Source any local plugins
-[[ -d $ZDOTDIR/plugins ]] && source $ZDOTDIR/plugins/**/*.plugin.zsh
+if [[ -d $ZDOTDIR/plugins ]]; then
+	for plugin in  $ZDOTDIR/plugins/**/*.plugin.zsh; do
+		source $plugin
+	done
+fi
 
 
 # Load plugins installed from Arch and AUR
