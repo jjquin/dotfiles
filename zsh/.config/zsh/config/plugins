@@ -1,0 +1,30 @@
+#
+# ZSH Configuration for Plugins
+#
+
+
+# Source any local plugins
+[[ -d $ZDOTDIR/plugins ]] && source $ZDOTDIR/plugins/**/*.plugin.zsh
+
+
+# Load plugins installed from Arch and AUR
+AZPLUGDIR="/usr/share/zsh/plugins"
+
+if [[ -d ${AZPLUGDIR} ]]; then
+
+	[[ -d ${AZPLUGDIR}/zsh-history-substring-search ]] && \
+		source ${AZPLUGDIR}/zsh-history-substring-search/zsh-history-substring-search.zsh
+	
+	for plugin in ${AZPLUGDIR}/**/*.plugin.zsh; do
+		source $plugin
+	done
+fi
+
+# Load powerlevel10k theme
+[[ -d /usr/share/zsh-theme-powerlevel10k ]] && \
+	source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
+
+# To customize prompt, run `p10k configure` or edit ~/.config/shell//.p10k.zsh.
+[[ -f ~/.config/zsh/config/p10k.zsh ]] && source ~/.config/zsh/config/p10k.zsh
+
+

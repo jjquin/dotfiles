@@ -1,5 +1,5 @@
 #
-# ZSH Alias for fasd
+# ZSH Plugin for fasd
 #
 
 if [ $commands[fasd] ]; then # check if fasd is installed

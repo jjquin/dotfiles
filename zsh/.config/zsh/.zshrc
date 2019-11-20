@@ -4,6 +4,13 @@
 # Desc: Main zsh configuration file for JJ's dotfiles
 #
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/shell//.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 fpath=(
 	$ZDOTDIR/completions
 	$ZDOTDIR/functions
@@ -37,21 +44,5 @@ if [[ -d $ZDOTDIR/completions ]]; then
 		autoload -U $comp
 	done
 fi
-
-# Source any local plugins
-# [[ -d $ZDOTDIR/plugins ]] && source $ZDOTDIR/plugins/**/*
-
-
-# Load plugins installed from Arch and AUR
-[[ -d /usr/share/zsh/plugins/zsh-history-substring-search ]] && \
-	source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-[[ -d /usr/share/zsh/plugins ]] && source /usr/share/zsh/plugins/**/*.plugin.zsh
-
-# Load powerlevel10k theme
-[[ -d /usr/share/zsh-theme-powerlevel10k ]] && \
-	source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
-
-# To customize prompt, run `p10k configure` or edit ~/.config/shell//.p10k.zsh.
-[[ -f ~/.config/zsh/config/p10k.zsh ]] && source ~/.config/zsh/config/p10k.zsh
 
 

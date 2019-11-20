@@ -46,10 +46,6 @@
 	bindkey -M menuselect 'j' vi-down-line-or-history
 	bindkey -v '^?' backward-delete-char
 
-	# Source fzf keybindings
-	[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-
-
 	# Change cursor shape for different vi modes.
 	function zle-keymap-select {
 	  if [[ ${KEYMAP} == vicmd ]] ||

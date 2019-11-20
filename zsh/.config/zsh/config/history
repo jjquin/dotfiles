@@ -21,8 +21,8 @@ function omz_history {
 }
 
 # Timestamp format
-alias   history='omz_history -i' \ 
-        h='history'
+alias   history='omz_history -i'
+alias   h='history'
 
 ## History file configuration
 HISTFILE="${ZCACHEDIR:-$HOME/.cache/zsh}/.zsh_history"
