@@ -4,8 +4,7 @@
 
 # Yay Aliases
 if (( $+commands[yay] )); then
-	alias	yay='yay --answerdiff N' \	
-		yaconf='yay -Pg' \
+	alias   yaconf='yay -Pg' \
 		yaupg='yay -Syu' \
 		yasu='yay -Syu --noconfirm' \
 		yain='yay -S' \
