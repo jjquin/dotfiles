@@ -28,7 +28,7 @@
 	export SUDO_EDITOR=/usr/bin/nvim
 	export READER=zathura
 	export FILE=ranger
-	export TERM=xterm-kitty
+	export DOTFILES="$HOME/code/dotfiles"
 	
 	# Set default config directories 
 	if [[ -z "$XDG_CONFIG_HOME" ]]; then

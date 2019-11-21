@@ -2,42 +2,37 @@
 # ZSH Function restow
 #
 # Desc: removes and reinstalls dotfiles configuration
-# for applications using either GNU Stow or XStow
+# for applications using either GNU Stow 
 #
 
 function restow {
-	
 	# Check if DOTFILES_DIR variable set and directory exists if not try to find directory and set it
-	if [[ -z "${DOTFILES_DIR}" ]] || [[ ! -d "${DOTFILES_DIR}" ]]; then
+	if [[ -z "${DOTFILES}" ]] || [[ ! -d "${DOTFILES}" ]]; then
 		if [[ -d "${HOME}/.dotfiles" ]]; then
-			DOTFILES_DIR="${HOME}/.dotfiles"
+			STOW_DIR="${HOME}/.dotfiles"
 		elif [[ $(pwd) =~ "dotfiles" ]]; then
-			DOTFILES_DIR="$(pwd)"
+			STOW_DIR="$(pwd)"
 		else
-			echo "Cannot filed dotfiles directory set DOTFILES_DIR variable or run command form dotfiles directory"
-			exit 1
+			echo "Cannot filed dotfiles directory set DOTFILES variable or run command form dotfiles directory"
+			return 1
 		fi
-	fi
-
-	# Set STOW and DESTOW options for dotfiles
-	STOW_OPTS="--no-folding --dotfiles -Rvt ${HOME} -d ${DOTFILES_DIR}"
-	DESTOW_OPTS="-Dvt ${HOME} -d ${DOTFILES_DIR}"
-
-	# Find XStow or GNU Stow, use XStow first because it has a force option 
-	if [[ -z $(whence xstow) ]]; then
-		STOW_CMD="$(whence xstow)"
-	elif [[ -z $(whence stow) ]]; then
-		STOW_CMD="$(whence stow)"
 	else
-		echo "XStow or GNU Stow are not installed."
-		exit 1
+		STOW_DIR="${DOTFILES}"
 	fi
 
-	# DeStow Application(s) if it is already installed
-	"${STOW_CMD} ${STOW_OPTS} ${@}"
+	# Make sure GNU Stow is installed 
+	if [[ -z $(whence stow) ]]; then
+		echo "GNU Stow is not installed."
+		return 1
+	fi
 
-	# Stow Application(s)
-	"${STOW_CMD} ${STOW_OPTS} ${@}"
+	for app in ${@}; do
+		# DeStow Application(s) if it is already installed
+		stow --dir=${STOW_DIR} --target=${HOME} -Dvv $@
+
+		# Stow Application(s)
+		stow --no-folding --dotfiles --dir=${STOW_DIR} --target=${HOME} -Rvv $@
+	done
 }
 
 restow "$@"

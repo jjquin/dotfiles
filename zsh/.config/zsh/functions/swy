@@ -9,27 +9,20 @@
 #
 
 function swy {
-	[[ -z "$1" ]] && echo "must enter argument"; exit 1
-
-	case $1 in
-		in)
-			gets="inputs"
-			;;
-		out)
-			gets="outputs"
-			;;
-		tree)
-			gets="tree"
-			;;
-		*)
-			swaymsg exec -- "${@:2}"
-			exit 0
-			;;
-	esac
-	if [[ -z "$2" ]]; then
-		swaymsg -t get_${gets} | less
-		else
-		swaymsg -t get_${gets} | grep -i "${@:2}"
+	if [[ ! -z "$1" ]]; then
+		typeset -A OPTS
+		OPTS=(in inputs out outputs tree tree)
+		if print -l "${(k)OPTS}" | grep -iq "$1"; then
+			if [[ -z "$2" ]]; then
+				swaymsg -t get_${OPTS[$1]} | less
+				else
+				swaymsg -t get_${OPTS[$1]} | grep -i "${@:2}"
+			fi
+		else		
+			swaymsg exec -- "${@}"
+		fi
+	else
+		echo "You must enter in,out,tree or a command to execute"
 	fi
 }
 
