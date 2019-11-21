@@ -2,21 +2,21 @@
 # ZSH Suffix Aliases
 #
 
-	# web
-	alias -s 	html=firefox \
+# web
+alias -s 	html=firefox \
 			org=firefox \
 			com=firefox
 
-	# Libreoffice
-	alias -s 	odt=libreoffice \
+# Libreoffice
+alias -s 	odt=libreoffice \
 			odf=libreoffice \
 			odg=libreoffice \
 			ods=libreoffice \
 			odp=libreoffice \
 			ott=libreoffice
 	
-	# editor
-	alias -s	txt=$EDITOR \
+# editor
+alias -s	txt=$EDITOR \
 			md=$EDITOR \
 			yml=$EDITOR \
 			yaml=$EDITOR \
@@ -26,23 +26,23 @@
 			json=$EDITOR \
 			cfg=$EDITOR
 
-	# images
-	alias -s	jpg=imv \
+# images
+alias -s	jpg=imv \
 			jpeg=imv \
 			png=imv \
 			gif=imv 
 
-	# videos
-	alias -s	mp4=mpv \
+# videos
+alias -s	mp4=mpv \
 			avi=mpv \
 			mkv=mpv
 
 
-	# PDF
-	alias -s	pdf=zathura 
+# PDF
+alias -s	pdf=zathura 
 			
-	# Compressed files
-	alias -s	tar=extract \
+# Compressed files
+alias -s	tar=extract \
 			tgz=extract \
 			gz=extract \
 			bz2=extract \

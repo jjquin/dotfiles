@@ -2,23 +2,23 @@
 # ZSH Options Configuration
 #
 
-        # Controlling directories
-        setopt AUTO_CD                # change directory without cd command
-        setopt AUTO_PUSHD             # cd foo == pushd foo
-        setopt PUSHD_IGNORE_DUPS      # ignore duplicates in dir list
-        setopt PUSHD_MINUS            # Exchange meanings of + and - for pushd
-        setopt PUSHD_TO_HOME          # Pushd with no arguments defaults to pushd $HOME
-        setopt PUSHD_SILENT           # Don't print the dorectory stack after pushd or popd
-        setopt AUTO_NAME_DIRS         # foo=path/to/foo == hash -d foo=/path/to/foo
-        setopt NO_CHASE_LINKS         # Don't resolve symlinks upon changing directories
-        setopt NO_POSIX_CD             # Make cd command POSIX incompatible
-                
+# Controlling directories
+setopt AUTO_CD                 # change directory without cd command
+setopt AUTO_PUSHD              # cd foo == pushd foo
+setopt PUSHD_IGNORE_DUPS       # ignore duplicates in dir list
+setopt PUSHD_MINUS             # Exchange meanings of + and - for pushd
+setopt PUSHD_TO_HOME           # Pushd with no arguments defaults to pushd $HOME
+setopt PUSHD_SILENT            # Don't print the dorectory stack after pushd or popd
+setopt AUTO_NAME_DIRS          # foo=path/to/foo == hash -d foo=/path/to/foo
+setopt NO_CHASE_LINKS          # Don't resolve symlinks upon changing directories
+setopt NO_POSIX_CD             # Make cd command POSIX incompatible
+        
 
-        setopt INTERACTIVE_COMMENTS   # allow comments on command line
-        setopt EXTENDED_GLOB          # Treat the #, - and ^ characters as part of patterns for globbing
-        setopt NO_BEEP                # Don't beep on errors
-        setopt NO_LIST_BEEP           # Don't beep onan ambigious completion
-        setopt AUTO_MENU              # show completion menu on successive tab presses
-        setopt NO_FLOW_CONTROL        # Disable flow control characters Ctrl-S & Ctrl-Q
-        setopt ALWAYS_TO_END          # Completion in middle of word the full completion is inserted
-        setopt VI                      # Use vi emulation mode
+setopt INTERACTIVE_COMMENTS    # allow comments on command line
+setopt EXTENDED_GLOB           # Treat the #, - and ^ characters as part of patterns for globbing
+setopt NO_BEEP                 # Don't beep on errors
+setopt NO_LIST_BEEP            # Don't beep onan ambigious completion
+setopt AUTO_MENU               # show completion menu on successive tab presses
+setopt NO_FLOW_CONTROL         # Disable flow control characters Ctrl-S & Ctrl-Q
+setopt ALWAYS_TO_END           # Completion in middle of word the full completion is inserted
+setopt VI                      # Use vi emulation mode

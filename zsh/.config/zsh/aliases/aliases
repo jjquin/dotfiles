@@ -2,15 +2,11 @@
 # ZSH Aliases
 #
 
-#
-# Aliases
-#
-
 # Set editor preference to nvim if available.
 if (( $+commands[nvim] )); then
 	alias 	vim='() { $(whence -p nvim) $@ }' \
-		vi='() { $(whence -p nvim) $@ }' \
-		vimdiff='nvim -d'
+        	vi='() { $(whence -p nvim) $@ }' \
+    		vimdiff='nvim -d'
  	
 else
  	alias 	vim='() { $(whence -p vim) $@ }'
@@ -18,20 +14,20 @@ fi
 
 # Generic command adaptations
 alias 	grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}' \
- 	egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+     	egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 
 # Common Commands
 alias 	kall='killall' \
-	shutdown='sudo shutdown -h now' \
-	cp="cp -iv" \
-	mv="mv -iv" \
-	rm="rm -v" \
-	ln="ln -iv" \
-	file="$FILE" \
-	clr='clear; echo Currently logged in on $TTY, as $USER in directory $PWD' \
-	cat='bat --color always --theme ansi-dark' \
-	ping='ping -c 5' \
-	psmem='ps -e -orss=,args= | sort -b -k1,1n | head 10' 
+    	shutdown='sudo shutdown -h now' \
+    	cp="cp -iv" \
+    	mv="mv -iv" \
+    	rm="rm -v" \
+    	ln="ln -iv" \
+    	file="$FILE" \
+    	clr='clear; echo Currently logged in on $TTY, as $USER in directory $PWD' \
+    	cat='bat --color always --theme ansi-dark' \
+    	ping='ping -c 5' \
+    	psmem='ps -e -orss=,args= | sort -b -k1,1n | head 10' 
 
 if (( $+commands[tldr] )); then
 	alias	help='tldr'
@@ -45,47 +41,62 @@ fi
 
 # Custom Commands
 alias 	colebg="killall swaybg && swaymsg exec -- swaybg -i ~/Media/Pictures/colemak_mod_wide.png -m tile" \
-	batt="cat /sys/class/power_supply/BAT?/capacity" \
-	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
- 	myip="curl http://ipecho.net/plain; echo" \
-	scim="sc-im" \
-	rezsh='source $ZDOTDIR/.zshrc' \
-	bc='bc ql' \
-	top10="history | awk '{print $2}' | sort | uniq -c | sort -rn | head"
+    	batt="cat /sys/class/power_supply/BAT?/capacity" \
+    	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+     	myip="curl http://ipecho.net/plain; echo" \
+    	scim="sc-im" \
+    	rezsh='source $ZDOTDIR/.zshrc' \
+    	bc='bc ql' \
+    	top10="history | awk '{print $2}' | sort | uniq -c | sort -rn | head"
 
 # zfs & zpool aliases
 if (( $+commands[zfs] )); then
 	alias	zfsls='zfs list -r' \
-		zfsla='zfs list -rt all' \
-		zpimp='zpool import -ld /dev/disk/by-id'
+    		zfsla='zfs list -rt all' \
+    		zpimp='zpool import -ld /dev/disk/by-id'
 fi
 
 # firewalld aliases
 if (( $+commands[firewall-cmd] )); then
 	alias 	fw="sudo firewall-cmd" \
-		fwp="sudo firewall-cmd --permanent" \
-		fwr="sudo firewall-cmd --reload" \
-		fwrp="sudo firewall-cmd --runtime-to-permanent"
+    		fwp="sudo firewall-cmd --permanent" \
+    		fwr="sudo firewall-cmd --reload" \
+    		fwrp="sudo firewall-cmd --runtime-to-permanent"
 fi
 
 # Ansible aliases
 if (( $+commands[ansible] )); then
 	alias 	a='ansible ' \
-		acfg='ansible-config ' \
-		acon='ansible-console ' \
-		aver='ansible --version' \
-		arinit='ansible-role-init' \
-		apbk='ansible-playbook ' \
-		ainv='ansible-inventory ' \
-		adoc='ansible-doc ' \
-		agal='ansible-galaxy ' \
-		apull='ansible-pull ' \
-		aval='ansible-vault' 
+    		acfg='ansible-config ' \
+    		acon='ansible-console ' \
+    		aver='ansible --version' \
+    		arinit='ansible-role-init' \
+    		apbk='ansible-playbook ' \
+    		ainv='ansible-inventory ' \
+    		adoc='ansible-doc ' \
+    		agal='ansible-galaxy ' \
+    		apull='ansible-pull ' \
+    		aval='ansible-vault' 
 fi
 
 # clamvirus aliases
 if (( $+commands[freshclam] )); then
 	alias	checkvirus="clamscan --recursive=yes --infected /home" \
-		updateantivirus="sudo freshclam"
+    		updateantivirus="sudo freshclam"
 fi
 
+# Systemd aliases
+alias 	sc-on='sudo systemctl enable' \
+		sc-off='sudo systemctl disable' \
+		sc-on-now='sudo systemctl enable --now' \
+	 	sc-off-now='sudo systemctl disable --now' \
+		sc-mask-now='sudo systemctl mask --now' \
+		scu-on-now='systemctl --user enable --now' \
+		scu-off-now='systemctl --user disable --now' \
+		scu-mask-now='systemctl --user mask --now' \
+		sc-lu='systemctl list-units' \
+		sc-luf='systemctl list-unit-files' \
+		sc-lt='systemctl list-timers' \
+		sc-is-act='systemctl is-active' \
+		sc-is-on='systemctl is-enabled' \
+		sc-sh-env='systemctl show-environment'

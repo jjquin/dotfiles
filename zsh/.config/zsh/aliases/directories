@@ -5,43 +5,43 @@
 # Directory coloring
 if (( $+commands[exa] )); then
 	alias	ls='exa --group-directories-first --color-scale --git-ignore' \
-		l='exa --group-directories-first --color-scale --git-ignore -algh --git' \
-		la'exa --group-directories-first --color-scale --git-ignore -a' \
-		ll='exa --group-directories-first --color-scale --git-ignore -lgh --git' \
-		ld='exa --group-directories-first --color-scale --git-ignore -laDgh --git' \
-		l1='exa --group-directories-first --color-scale --git-ignore -1' \
-		tree='exa --group-directories-first --color-scale --git-ignore -alhT'
+    		l='exa --group-directories-first --color-scale --git-ignore -algh --git' \
+    		la'exa --group-directories-first --color-scale --git-ignore -a' \
+    		ll='exa --group-directories-first --color-scale --git-ignore -lgh --git' \
+    		ld='exa --group-directories-first --color-scale --git-ignore -laDgh --git' \
+    		l1='exa --group-directories-first --color-scale --git-ignore -1' \
+    		tree='exa --group-directories-first --color-scale --git-ignore -alhT'
 else
 	alias ls='() { $(whence -p ls) -vh --group-directories-first --file-type --color=auto $@ }' \
-		l='ls -al' \
-		la='ls -a' \
-		ll='ls -l' \
-		ld='ls -ld .*' \
-		ld='ls -1'
+    		l='ls -al' \
+    		la='ls -a' \
+    		ll='ls -l' \
+    		ld='ls -ld .*' \
+    		ld='ls -1'
 fi
 
 # Directory management
 alias 	1='pu' \
-	2='pu -2' \
-	3='pu -3' \
-	4='pu -4' \
-	5='pu -5' \
-	6='pu -6' \
-	7='pu -7' \
-	8='pu -8' \
-	9='pu -9' \
-	pu='pushd $1' \
-	po='popd ' \
-	cd..='cd ..' \
-	..='cd ..' \
-	...='cd ../..' \
-	....='cd ../../..' \
-	.....='cd ../../../..' \
-	.2='cd ../..' \
-	.3='cd ../../..' \
-	.4='cd ../../../..' \
-	.5='cd ../../../../..' \
-	mkdir='mkdir -pv'
+    	2='pu -2' \
+    	3='pu -3' \
+    	4='pu -4' \
+    	5='pu -5' \
+    	6='pu -6' \
+    	7='pu -7' \
+    	8='pu -8' \
+    	9='pu -9' \
+    	pu='pushd $1' \
+    	po='popd ' \
+    	cd..='cd ..' \
+    	..='cd ..' \
+    	...='cd ../..' \
+    	....='cd ../../..' \
+    	.....='cd ../../../..' \
+    	.2='cd ../..' \
+    	.3='cd ../../..' \
+    	.4='cd ../../../..' \
+    	.5='cd ../../../../..' \
+    	mkdir='mkdir -pv'
 
 
 

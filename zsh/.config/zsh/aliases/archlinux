@@ -5,38 +5,38 @@
 # Yay Aliases
 if (( $+commands[yay] )); then
 	alias   yaconf='yay -Pg' \
-		yaupg='yay -Syu' \
-		yasu='yay -Syu --noconfirm' \
-		yain='yay -S' \
-		yains='yay -U' \
-		yare='yay -R' \
-		yarem='yay -Rns' \
-		yarep='yay -Si' \
-		yareps='yay -Ss' \
-		yaloc='yay -Qi' \
-		yalocs='yay -Qs' \
-		yals='pacman -Qm' \
-		yalst='yay -Qe' \
-		yaorph='yay -Qtd' \
-		yainsd='yay -S --asdeps' \
-		yamir='yay -Syy' \
+    		yaupg='yay -Syu' \
+    		yasu='yay -Syu --noconfirm' \
+    		yain='yay -S' \
+    		yains='yay -U' \
+    		yare='yay -R' \
+    		yarem='yay -Rns' \
+    		yarep='yay -Si' \
+    		yareps='yay -Ss' \
+    		yaloc='yay -Qi' \
+    		yalocs='yay -Qs' \
+    		yals='pacman -Qm' \
+    		yalst='yay -Qe' \
+    		yaorph='yay -Qtd' \
+    		yainsd='yay -S --asdeps' \
+    		yamir='yay -Syy' 
 fi
 
 
 # Pacman Aliases
 alias	pac='sudo pacman' \
-	pacup='sudo pacman -Syu' \
-	pacin='sudo pacman -S' \
-	pacrm='sudo pacman -Rns' \
-	pacfind="'pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'" \
-	pacfiles='pacman -Ql' \
-	pacfilupg='sudo pacman -Fy' \
-	pacfilown='pacman -Qo' \
-	pacloc='pacman -Qi' \
-	paclocs='pacman -Qs' \
-	paclsorp='sudo pacman -Qdt' \
-	pacrmorp="sudo pacman -Rs $(pacman -Qtdq)" \
-	paccheck='sudo paccache -d' \
-	pacclean='sudo paccache -r' \
-	up_pkg='~/.local/bin/upd_pkg_list'
+    	pacup='sudo pacman -Syu' \
+    	pacin='sudo pacman -S' \
+    	pacrm='sudo pacman -Rns' \
+    	pacfind="'pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'" \
+    	pacfiles='pacman -Ql' \
+    	pacfilupg='sudo pacman -Fy' \
+    	pacfilown='pacman -Qo' \
+    	pacloc='pacman -Qi' \
+    	paclocs='pacman -Qs' \
+    	paclsorp='sudo pacman -Qdt' \
+    	pacrmorp="sudo pacman -Rs $(pacman -Qtdq)" \
+    	paccheck='sudo paccache -d' \
+    	pacclean='sudo paccache -r' \
+    	up_pkg='~/.local/bin/upd_pkg_list'
 

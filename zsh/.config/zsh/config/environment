@@ -1,38 +1,38 @@
 #
 # ZSH Variables
 #
-	# Set Language
-	export LC_COLLATE=en_US.UTF-8
-	export LC_CTYPE=en_US.UTF-8
-	export LC_MESSAGES=en_US.UTF-8
-	export LC_MONETARY=en_US.UTF-8
-	export LC_NUMERIC=en_US.UTF-8
-	export LC_TIME=en_US.UTF-8
-	export LC_ALL=en_US.UTF-8
-	export LANG=en_US.UTF-8
-	export LANGUAGE=en_US.UTF-8
-	export LESSCHARSET=utf-8
-	
-	# improved less option
-	export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS"
-	
-	# Watching other users
-	WATCHFMT="%n %a %l from %m at %t."
-	watch=(notme)         # Report login/logout events for everybody except ourself.
-	LOGCHECK=60           # Time (seconds) between checks for login/logout activity.
-	REPORTTIME=5          # Display usage statistics for commands running > 5 sec.
-	
-	# Key timeout and character sequences
-	KEYTIMEOUT=1
-	WORDCHARS='*?_-[]~=./&;!#$%^(){}<>'
+# Set Language
+export LC_COLLATE=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_MESSAGES=en_US.UTF-8
+export LC_MONETARY=en_US.UTF-8
+export LC_NUMERIC=en_US.UTF-8
+export LC_TIME=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LESSCHARSET=utf-8
 
-	# Colorize Man Pages
-	export LESS_TERMCAP_mb=$(printf "\e[1;31m") 
-	export LESS_TERMCAP_md=$(printf "\e[1;31m") 
-	export LESS_TERMCAP_me=$(printf "\e[0m") 
-	export LESS_TERMCAP_se=$(printf "\e[0m") 
-	export LESS_TERMCAP_so=$(printf "\e[1;44;33m") 
-	export LESS_TERMCAP_ue=$(printf "\e[0m") 
-	export LESS_TERMCAP_us=$(printf "\e[1;32m") 
-	export PAGER="${commands[less]:-$PAGER}" 
+# improved less option
+export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS"
+
+# Watching other users
+WATCHFMT="%n %a %l from %m at %t."
+watch=(notme)         # Report login/logout events for everybody except ourself.
+LOGCHECK=60           # Time (seconds) between checks for login/logout activity.
+REPORTTIME=5          # Display usage statistics for commands running > 5 sec.
+
+# Key timeout and character sequences
+KEYTIMEOUT=1
+WORDCHARS='*?_-[]~=./&;!#$%^(){}<>'
+
+# Colorize Man Pages
+export LESS_TERMCAP_mb=$(printf "\e[1;31m") 
+export LESS_TERMCAP_md=$(printf "\e[1;31m") 
+export LESS_TERMCAP_me=$(printf "\e[0m") 
+export LESS_TERMCAP_se=$(printf "\e[0m") 
+export LESS_TERMCAP_so=$(printf "\e[1;44;33m") 
+export LESS_TERMCAP_ue=$(printf "\e[0m") 
+export LESS_TERMCAP_us=$(printf "\e[1;32m") 
+export PAGER="${commands[less]:-$PAGER}" 
 

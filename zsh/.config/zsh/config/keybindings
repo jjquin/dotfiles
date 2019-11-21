@@ -5,85 +5,85 @@
 #
 # Expand Vi-Mode Keybindings
 #
-	# Load ZLE
-	zmodload zsh/zle
+# Load ZLE
+zmodload zsh/zle
 
-	# Set vi keybindings	
-	bindkey -v
+# Set vi keybindings	
+bindkey -v
 
-	# allow v to edit the command line (standard behaviour)
-	autoload -Uz edit-command-line
-	zle -N edit-command-line
-	bindkey -M vicmd '^V' edit-command-line
-	
-	# allow ctrl-p, ctrl-n for navigate history (standard behaviour)
-	bindkey '^P' up-history
-	bindkey '^N' down-history
-	
-	# allow ctrl-h, ctrl-w, ctrl-? for char and word deletion (standard behaviour)
-	bindkey '^?' backward-delete-char
-	bindkey '^h' backward-delete-char
-	bindkey '^w' backward-kill-word
+# allow v to edit the command line (standard behaviour)
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd '^V' edit-command-line
 
-	# fix delete, insert, home and end keys
-	bindkey -M vicmd '^[[2~' vi-insert
-	bindkey -M viins '^[[2~' vi-cmd-mode
-	bindkey -M vicmd '^[[3~' delete-char
-	bindkey -M viins '^[[3~' delete-char
-	bindkey '^[[H' vi-beginning-of-line
-	bindkey '^[[F' vi-end-of-line
-	
-	# allow ctrl-r and ctrl-s to search the history
-	# bindkey '^r' history-incremental-search-backward
-	# bindkey '^s' history-incremental-search-forward
-	bindkey '^r' history-substring-search-up
-	bindkey '^s' history-substring-search-down
+# allow ctrl-p, ctrl-n for navigate history (standard behaviour)
+bindkey '^P' up-history
+bindkey '^N' down-history
 
-	# up and down arrow for history search
-	bindkey '[[A' history-substring-search-up
-	bindkey '[[B' history-substring-search-down
+# allow ctrl-h, ctrl-w, ctrl-? for char and word deletion (standard behaviour)
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
 
-	# Better searching in command mode
-	bindkey -M vicmd '?' history-substring-search-down
-	bindkey -M vicmd '/' history-substring-search-up
+# fix delete, insert, home and end keys
+bindkey -M vicmd '^[[2~' vi-insert
+bindkey -M viins '^[[2~' vi-cmd-mode
+bindkey -M vicmd '^[[3~' delete-char
+bindkey -M viins '^[[3~' delete-char
+bindkey '^[[H' vi-beginning-of-line
+bindkey '^[[F' vi-end-of-line
 
-	# assign page up and down keys to searching history
-	bindkey '^[[5~' vi-up-line-or-history
-	bindkey '^[[6~' vi-down-line-or-history
+# allow ctrl-r and ctrl-s to search the history
+# bindkey '^r' history-incremental-search-backward
+# bindkey '^s' history-incremental-search-forward
+bindkey '^r' history-substring-search-up
+bindkey '^s' history-substring-search-down
 
-	# allow ctrl-a and ctrl-e to move to beginning/end of line
-	bindkey '^a' beginning-of-line
-	bindkey '^e' end-of-line
+# up and down arrow for history search
+bindkey '[[A' history-substring-search-up
+bindkey '[[B' history-substring-search-down
 
-	# Use vim keys in tab complete menu:
-	bindkey -M menuselect 'h' vi-backward-char
-	bindkey -M menuselect 'k' vi-up-line-or-history
-	bindkey -M menuselect 'l' vi-forward-char
-	bindkey -M menuselect 'j' vi-down-line-or-history
-	bindkey -v '^?' backward-delete-char
+# Better searching in command mode
+bindkey -M vicmd '?' history-substring-search-down
+bindkey -M vicmd '/' history-substring-search-up
 
-	# Change cursor shape for different vi modes.
-	function zle-keymap-select {
-	  if [[ ${KEYMAP} == vicmd ]] ||
-	     [[ $1 = 'block' ]]; then
-	    echo -ne '\e[1 q'
-	
-	  elif [[ ${KEYMAP} == main ]] ||
-	       [[ ${KEYMAP} == viins ]] ||
-	       [[ ${KEYMAP} = '' ]] ||
-	       [[ $1 = 'beam' ]]; then
-	    echo -ne '\e[5 q'
-	  fi
-	}
-	zle -N zle-keymap-select
-	
-	zle-line-init() {
-	    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-	    echo -ne "\e[5 q"
-	}
-	zle -N zle-line-init
-	
-	# Use beam shape cursor on startup.
-	echo -ne '\e[5 q'
-	# Use beam shape cursor for each new prompt.
-	preexec() { echo -ne '\e[5 q' ;}
+# assign page up and down keys to searching history
+bindkey '^[[5~' vi-up-line-or-history
+bindkey '^[[6~' vi-down-line-or-history
+
+# allow ctrl-a and ctrl-e to move to beginning/end of line
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+    if [[ ${KEYMAP} == vicmd ]] ||
+         [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  
+    elif [[ ${KEYMAP} == main ]] ||
+         [[ ${KEYMAP} == viins ]] ||
+         [[ ${KEYMAP} = '' ]] ||
+         [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+    fi
+}
+zle -N zle-keymap-select
+
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+
+# Use beam shape cursor on startup.
+echo -ne '\e[5 q'
+# Use beam shape cursor for each new prompt.
+preexec() { echo -ne '\e[5 q' ;}

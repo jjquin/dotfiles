@@ -5,8 +5,8 @@
 #
 
 
-	# Load Gnome Keyring Daemon
-	if [ -n "$DISPLAY" ]; then
-                eval $(gnome-keyring-daemon --start)
-                export SSH_AUTH_SOCK
-        fi
+# Load Gnome Keyring Daemon
+if [ -n "$DISPLAY" ]; then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi

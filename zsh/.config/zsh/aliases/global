@@ -2,8 +2,8 @@
 # ZSH Global Aliases
 #
 
-	# Command line head / tail shortcuts
-	alias	-g H='| head' \
+# Command line head / tail shortcuts
+alias	-g H='| head' \
 		-g T='| tail' \
 		-g G='| grep' \
 		-g L="| less" \
