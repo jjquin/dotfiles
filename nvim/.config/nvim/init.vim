@@ -52,6 +52,14 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" let g:deoplete#enable_at_startup = 1
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+let g:airline_theme='base16_snazzy' " <theme> is a valid theme name
 
 " noremap ; :           " Use ; in addition to : to type commands.
 
