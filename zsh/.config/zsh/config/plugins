@@ -24,11 +24,16 @@ if [[ -d ${AZPLUGDIR} ]]; then
 	done
 fi
 
-# Load powerlevel10k theme
-[[ -d /usr/share/zsh-theme-powerlevel10k ]] && \
-	source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
 
-# To customize prompt, run `p10k configure` or edit ~/.config/shell//.p10k.zsh.
-[[ -f ~/.config/zsh/config/p10k.zsh ]] && source ~/.config/zsh/config/p10k.zsh
+if [[ ${TERM} == "xterm-kitty" ]] || [[ ${TERM} == "xterm-256color" ]]; then
+	# Load powerlevel10k theme
+	[[ -d /usr/share/zsh-theme-powerlevel10k ]] && \
+		source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
+	
+	# To customize prompt, run `p10k configure` or edit ~/.config/shell//.p10k.zsh.
+	[[ -f ~/.config/zsh/config/p10k.zsh ]] && source ~/.config/zsh/config/p10k.zsh
+else
+	PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+fi
 
 

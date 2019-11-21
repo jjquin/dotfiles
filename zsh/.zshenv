@@ -29,6 +29,7 @@
 	export READER=zathura
 	export FILE=ranger
 	export DOTFILES="$HOME/code/dotfiles"
+	export MANPAGER="nvim +'set filetype=man' -"
 	
 	# Set default config directories 
 	if [[ -z "$XDG_CONFIG_HOME" ]]; then
@@ -38,6 +39,7 @@
   		export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
 	fi
 	export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
+	export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/.batrc"
 	# export user-emacs-directory="$XDG_CONFIG_HOME/emacs"
 
 	# Set default cache directories
