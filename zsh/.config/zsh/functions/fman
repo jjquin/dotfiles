@@ -1,0 +1,11 @@
+#
+# ZSH Functin fman
+#
+# Desc: uses fzf to find manpages
+#
+
+fman() {
+    man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
+}
+
+fman

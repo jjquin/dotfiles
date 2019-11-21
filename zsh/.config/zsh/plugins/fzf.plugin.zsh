@@ -15,4 +15,5 @@
 	export ENHANCD_FILTER="fzf:peco:percol"
 	export ENHANCD_COMMAND='c'
 
+	unalias z 2> /dev/null
 

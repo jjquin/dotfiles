@@ -1,0 +1,12 @@
+#
+# ZSH Function fe
+#
+# Desc: find a file using fzf and open in default editor
+#
+
+fe() {
+  local file
+  file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && "${EDITOR}" "${file}" || return 1
+}
+
+fe "$@"
