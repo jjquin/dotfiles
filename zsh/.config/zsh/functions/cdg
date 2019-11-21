@@ -1,0 +1,17 @@
+#
+# ZSH Function cdg
+#
+# Desc: uses fzf to easily change directory using a bookmarks file
+#
+
+unalias cdg 2> /dev/null
+
+function cdg {
+	local DEST_DIR=$( /usr/bin/cat "$HOME/.local/share/bookmarks.cdg" | fzf)
+	if [[ ! -z $DEST_DIR ]]; then
+		cd "${DEST_DIR}"
+	fi
+}
+
+cdg
+

@@ -5,7 +5,7 @@
 # Directory coloring
 if (( $+commands[exa] )); then
 	alias	ls='exa --group-directories-first --color-scale --git-ignore' \
-		l='exa --group-directoreis-first --color-scale --git-ignore -algh --git' \
+		l='exa --group-directories-first --color-scale --git-ignore -algh --git' \
 		la'exa --group-directories-first --color-scale --git-ignore -a' \
 		ll='exa --group-directories-first --color-scale --git-ignore -lgh --git' \
 		ld='exa --group-directories-first --color-scale --git-ignore -laDgh --git' \
