@@ -1,0 +1,9 @@
+--theme="ansi-dark"
+--style="numbers,changes,header"
+--italic-text=always
+--color=always
+--map-syntax .ignore:gitignore
+--map-syntax .fdignore:gitignore
+--map-syntax .gitconfig.local:gitconfig
+--map-syntax .zshrc.local:zsh
+--map-syntax .vimrc.local:vim
