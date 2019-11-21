@@ -14,7 +14,7 @@
 	# allow v to edit the command line (standard behaviour)
 	autoload -Uz edit-command-line
 	zle -N edit-command-line
-	bindkey -M vicmd 'v' edit-command-line
+	bindkey -M vicmd '^V' edit-command-line
 	
 	# allow ctrl-p, ctrl-n for navigate history (standard behaviour)
 	bindkey '^P' up-history
@@ -24,6 +24,14 @@
 	bindkey '^?' backward-delete-char
 	bindkey '^h' backward-delete-char
 	bindkey '^w' backward-kill-word
+
+	# fix delete, insert, home and end keys
+	bindkey -M vicmd '^[[2~' vi-insert
+	bindkey -M viins '^[[2~' vi-cmd-mode
+	bindkey -M vicmd '^[[3~' delete-char
+	bindkey -M viins '^[[3~' delete-char
+	bindkey '^[[H' vi-beginning-of-line
+	bindkey '^[[F' vi-end-of-line
 	
 	# allow ctrl-r and ctrl-s to search the history
 	# bindkey '^r' history-incremental-search-backward
@@ -35,10 +43,18 @@
 	bindkey '[[A' history-substring-search-up
 	bindkey '[[B' history-substring-search-down
 
+	# Better searching in command mode
+	bindkey -M vicmd '?' history-substring-search-down
+	bindkey -M vicmd '/' history-substring-search-up
+
+	# assign page up and down keys to searching history
+	bindkey '^[[5~' vi-up-line-or-history
+	bindkey '^[[6~' vi-down-line-or-history
+
 	# allow ctrl-a and ctrl-e to move to beginning/end of line
 	bindkey '^a' beginning-of-line
 	bindkey '^e' end-of-line
-	
+
 	# Use vim keys in tab complete menu:
 	bindkey -M menuselect 'h' vi-backward-char
 	bindkey -M menuselect 'k' vi-up-line-or-history
