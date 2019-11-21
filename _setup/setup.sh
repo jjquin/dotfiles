@@ -5,7 +5,10 @@
 # git submodule update
 
 # Make sure script is not run as root or using sudo
-[[ "$(whoami)" == *"root"* ]] && echo "Do not run as root or with sudo"; exit 1
+if [[ "$(whoami)" == *"root"* ]]; then
+	echo "Do not run as root or with sudo" 
+	exit 1
+fi
 
 # folders that should be installed for every setup 
 BASE_FOLDERS=(
@@ -16,31 +19,34 @@ BASE_FOLDERS=(
 	yay
 )
 
-# Set basic stow options
-CMD_OPTS="--no-folding -Rvt ~ "
-
 # Make sure the script is run from the dotfiles or _setup directories
-CURR_DIR="$(basename $(pwd))" 
-if [[ ${CURR_DIR} == "_setup" ]]; then
-	# Add parent directory to stow options
-	CMD_OPTS="-d ../ "
-elif [[ ${CURR_DIR} != "dotfiles" ]]; then
-	# Exit if script is not in correct directory
-	echo "setup.sh must be run from the dotfiles or _setup"
+if [[ -z "${DOTFILES}" ]] || [[ ! -d "${DOTFILES}" ]]; then
+        if [[ -d "${HOME}/.dotfiles" ]]; then
+                STOW_DIR="${HOME}/.dotfiles"
+        elif [[ $(pwd) =~ "dotfiles" ]]; then
+                STOW_DIR="$(pwd)"
+	elif [[ $(pwd) =~ "_setup" ]]; then
+		STOW_DIR="$(dirname $(pwd))"
+        else
+                echo "Cannot find dotfiles directory set DOTFILES variable or run command form dotfiles directory"
+                exit 1
+        fi
+else
+        STOW_DIR="${DOTFILES}"
+fi
+
+if [[ -z $(whereis stow) ]]; then
+	echo "GNU Stow not installed."
 	exit 1
 fi
 
-if [[ -z $(whence xstow) ]]; then
-	STOW_CMD="$(whence xstow)"
-	CMD_OPTS="-f ${CMD_OPTS}"
-else
-	STOW_CMD="$(whence stow)"
-fi
+# Set basic stow options
+CMD_OPTS="--no-folding --dotfiles --dir=${STOW_DIR} --target=${HOME} -Rv"
 
 # Add hostname if host specific stow folder exists 
-HOST_NAME=$(cat /etc/hostname)
-if echo $(ls -1d ../* *) | grep -i ${HOST_NAME}; then
-	base+=${HOST_NAME}
+HOST_NAME=$(/usr/bin/cat /etc/hostname)
+if echo $(ls -1d ${STOW_DIR}/*) | grep -qi ${HOST_NAME}; then
+	BASE_FOLDERS+=(${HOST_NAME})
 fi
 
 # Combine base folders, hostname and setup arguments
@@ -51,7 +57,7 @@ echo "Stowing apps for user: $(whoami)"
 
 # Install apps for all users
 for APP in ${APPS_LIST[@]}; do
-	${STOW_CMD} ${CMD_OPTS} ${APP}
+	stow ${CMD_OPTS} ${APP}
 done
 
 echo "Done: Stowed the following apps:"
