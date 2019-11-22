@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ -z "$1"]; then
+    LOCATION="44240"
+else
+    LOCATION="$1"
+fi
+
+clear
+
+sleep 1
+
+swaymsg [title="Forecast"], floating enable, move position center, resize set 1150 750
+
+/usr/bin/curl "wttr.in/${LOCATION}" 
+
+read 
+
+
+

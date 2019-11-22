@@ -1,4 +1,4 @@
-#
+
 # Sway Window Rules
 #
 
@@ -84,12 +84,10 @@
         for_window [title="Dropdown *"] move position center	
 
         # General dropdown window traits. The order can matter.
-        for_window [title="Dropdown Launcher*"] floating enable
-        for_window [title="Dropdown Launcher*"] move scratchpad
-        for_window [title="Dropdown Launcher*"] sticky enable
-        for_window [title="Dropdown Launcher*"] scratchpad show
-        for_window [title="Dropdown Launcher*"] resize set width 225
-        for_window [title="Dropdown Launcher*"] resize set height 100
-        for_window [title="Dropdown Launcher*"] border pixel 0
-        for_window [title="Dropdown Launcher*"] move position center	
+        for_window [title="Forecast"] floating enable
+        for_window [title="Forecast"] sticky enable
+        for_window [title="Forecast"] resize set width 1400
+        for_window [title="Forecast"] resize set height 800
+        for_window [title="Forecast"] border pixel 0
+        for_window [title="Forecast"] move position center	
 	

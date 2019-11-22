@@ -120,7 +120,7 @@
         "return-type": "json",
         "exec": "~/.config/waybar/modules/weather.sh 44240",
         "exec-if": "ping wttr.in -c1",
-	"on-click": "qutebrowser https://en.wttr.in/44240"
+	"on-click": "kitty --title=Forecast ~/.local/bin/forecast"
     },
     "idle_inhibitor": {
         "format": "{icon}",
