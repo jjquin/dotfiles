@@ -45,5 +45,5 @@ if [[ -d $ZDOTDIR/completions ]]; then
 	done
 fi
 
-Start Neofetch
+# Start Neofetch
 neofetch

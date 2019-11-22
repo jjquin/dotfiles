@@ -27,7 +27,13 @@ alias 	kall='killall' \
     	clr='clear; echo Currently logged in on $TTY, as $USER in directory $PWD' \
     	cat='bat --color always --theme ansi-dark' \
     	ping='ping -c 5' \
-    	psmem='ps -e -orss=,args= | sort -b -k1,1n | head 10' 
+    	psmem='ps -e -orss=,args= | sort -b -k1,1n | head 10' \
+        s='sudo' \
+        sr='sudo !!'\
+        se='sudoedit' \
+        gr='cd $(git rev-parse --show-toplevel)' \
+        rg='rs -S --color=always --ignore-file $HOME/.config/ripgrep/ignore' \
+    	top10="history | awk '{print $2}' | sort | uniq -c | sort -rn | head"
 
 if (( $+commands[tldr] )); then
 	alias	help='tldr'
@@ -47,7 +53,8 @@ alias 	colebg="killall swaybg && swaymsg exec -- swaybg -i ~/Media/Pictures/cole
     	scim="sc-im" \
     	rezsh='source $ZDOTDIR/.zshrc' \
     	bc='bc ql' \
-    	top10="history | awk '{print $2}' | sort | uniq -c | sort -rn | head"
+        weather='curl -H "Accept-Language ${LANG%_*}" "wttr.in/44240?0"' \
+        forecast='kitty --title="Forecast" ~/.local/bin/forecast'
 
 # zfs & zpool aliases
 if (( $+commands[zfs] )); then
@@ -86,7 +93,12 @@ if (( $+commands[freshclam] )); then
 fi
 
 # Systemd aliases
-alias 	sc-on='sudo systemctl enable' \
+alias 	sc='systemctl' \
+        scu='systemctl --user' \
+        jc='journalctl' \
+        jcu='journalctl --user' \
+        jct='journalctl -n' \
+        sc-on='sudo systemctl enable' \
 		sc-off='sudo systemctl disable' \
 		sc-on-now='sudo systemctl enable --now' \
 	 	sc-off-now='sudo systemctl disable --now' \
