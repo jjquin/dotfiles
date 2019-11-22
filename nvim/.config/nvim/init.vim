@@ -20,7 +20,7 @@ noremap <c-j> <c-w><c-j>
 noremap <c-k> <c-w><c-k>
 noremap <c-l> <c-w><c-l>
 
-set foldmethod=indent           " Indentation-based folding.
+set foldmethod=marker           " Indentation-based folding.
 
 set wildmenu                    " Enable enhanced tab autocomplete.
 set wildmode=list:longest,full  " Complete till longest string, then open menu.
