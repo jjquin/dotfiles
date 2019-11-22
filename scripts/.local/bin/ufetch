@@ -1,0 +1,58 @@
+#!/bin/sh
+#
+# ufetch-arch - tiny system info for arch linux
+#
+
+## INFO
+
+# user is already defined
+hostname="$(/usr/bin/cat /etc/hostname)"
+os='Arch Linux'
+kernel="$(uname -sr)"
+uptime="$(uptime -p | sed 's/up //')"
+packages="$(pacman -Q | wc -l)"
+shell="$(basename ${SHELL})"
+if ps all | grep -qe "sway$"; then
+    DE="Sway WM"
+else
+    DE=$DESKTOP_SESSION
+fi
+
+birthday="$(head -n 1 /var/log/pacman.log | grep -oP '\d{4}(-\d{2}){2}')"
+birthday="$(date -d $birthday +'%b %d, %Y' )"
+
+## DEFINE COLORS
+
+# probably don't change these
+bc="$(tput bold)"		# bold
+c0="$(tput setaf 0)"	# black
+c1="$(tput setaf 1)"	# red
+c2="$(tput setaf 2)"	# green
+c3="$(tput setaf 3)"	# yellow
+c4="$(tput setaf 4)"	# blue
+c5="$(tput setaf 5)"	# magenta
+c6="$(tput setaf 6)"	# cyan
+c7="$(tput setaf 7)"	# white
+rc="$(tput sgr0)"		# reset
+
+# you can change these
+lc="${rc}${bc}${c6}"	# labels
+nc="${rc}${bc}${c6}"	# user and hostname
+ic="${rc}${bc}${c7}"	# info
+fc="${rc}${bc}${c6}"	# first color
+sc="${rc}${c6}"			# second color
+
+## OUTPUT
+
+cat <<EOF
+
+${fc}                  ${nc}${USER}${ic}@${nc}${hostname}${rc}
+${fc}        /\        ${lc}OS:        ${ic}${os}${rc}
+${fc}       /^^\       ${lc}KERNEL:    ${ic}${kernel}${rc}
+${fc}      /\   \      ${lc}UPTIME:    ${ic}${uptime}${rc}
+${fc}     /  ${sc}__  \     ${lc}BIRTHDAY:  ${ic}${birthday}${rc}
+${sc}    /  (  )  \    ${lc}PACKAGES:  ${ic}${packages}${rc}
+${sc}   / __|  |__\\\\   ${lc}SHELL:     ${ic}${shell}${rc}
+${sc}  ///        \\\\\  ${lc}DE:        ${ic}${DE}${rc}
+
+EOF
