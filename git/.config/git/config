@@ -1,8 +1,6 @@
 [user]
 	email = git@quin.email
 	name = JJ Quinlivan
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
