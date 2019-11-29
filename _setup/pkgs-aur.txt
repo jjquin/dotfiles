@@ -1,7 +1,7 @@
 ansible-aur-git
+antlr3-3.1.2
 bitwarden-bin
 bitwarden-cli-bin
-brave-bin
 breeze-obsidian-cursor-theme
 breeze-snow-cursor-theme
 brother-hl-l2380dw
@@ -21,9 +21,12 @@ gstreamer0.10-bad
 gstreamer0.10-bad-plugins
 gstreamer0.10-base
 gstreamer0.10-base-plugins
+gtypist
 htop-vim-git
 hydrapaper-git
 inxi
+klfc-bin
+lf-bin
 libevdevplus-git
 libgksu
 libuinputplus-git
@@ -38,12 +41,16 @@ pamac-common
 pamac-gtk
 pamac-tray-appindicator-src
 perl-config-inifiles
-python-i3ipc
 python-pyzfscmds
 python-vagrant
+python2-antlr3-3.1.2
+qdmenu
+qsyncthingtray
 redshift-wlr-gamma-control-git
+rofi-git
 sanoid
 sc-im
+sway-launcher-desktop
 swaynagmode
 systemd-zpool-scrub
 thinkalert
@@ -51,6 +58,7 @@ thinkfinger
 thunderbird-extension-gnome-keyring-git
 tlpui-git
 vagrant-libvirt
+vim-plug
 wdisplays-git
 wlrobs-hg
 wofi-hg
@@ -60,4 +68,5 @@ ydotool-git
 zedenv
 zsh-fast-syntax-highlighting-git
 zsh-theme-powerlevel10k-git
+zsh-you-should-use
 zsh-zplugin-git
