@@ -1,0 +1,9 @@
+[Unit]
+Description=Runs System Maintenance
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env system_maint
+
+[Install]
+WantedBy=default.target

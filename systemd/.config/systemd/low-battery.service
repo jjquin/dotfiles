@@ -1,0 +1,9 @@
+[Unit]
+Description=Alerts when battery low
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env low_battery_warning
+
+[Install]
+WantedBy=default.target

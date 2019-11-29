@@ -1,0 +1,8 @@
+[Unit]
+Description=Runs System Maintenance daily
+
+[Timer]
+OnUnitActiveSec=1day
+
+[Install]
+WantedBy=default.target
