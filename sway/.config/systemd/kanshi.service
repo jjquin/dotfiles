@@ -1,0 +1,11 @@
+[Unit]
+Description=Dynamic Display Configuration for Sway
+Documentation=man:kanshi(1)
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kanshi
+
+[Install]
+WantedBy=sway-session.target

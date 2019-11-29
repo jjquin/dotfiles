@@ -1,0 +1,9 @@
+[Unit]
+Description=Switch Wallpapers Every 30 minutes
+
+[Timer]
+OnUnitActiveSec=30min
+OnBootSec=0min
+
+[Install]
+WantedBy=sway-session.target

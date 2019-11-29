@@ -39,6 +39,7 @@
 	for_window [app_id="pavucontrol"] floating enable
 	for_window [app_id="(?i)thunar"] floating enable
 	for_window [app_id="vlc"] floating enable
+	for_window [app_id="wpg"] floating enable
 	for_window [app_id="tlp-ui"] floating enable
 	for_window [app_id="pamac-manager"] floating enable
 	for_window [app_id="nm-connection-editor$"] floating enable

@@ -1,0 +1,10 @@
+[Unit]
+Description=random wallpaper
+Requires=kanshi.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env random_wallpaper
+
+[Install]
+WantedBy=sway-session.target
